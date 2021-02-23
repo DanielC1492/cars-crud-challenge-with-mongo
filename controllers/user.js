@@ -9,10 +9,10 @@ class UserController {
     }
 
     async store(user) {
-        return User.create(user);
+        return User.create(car);
     }
 
-    async update(id, user) {
+    async update(id, car) {
         return User.findByIdAndUpdate(id, user);
     }
 
