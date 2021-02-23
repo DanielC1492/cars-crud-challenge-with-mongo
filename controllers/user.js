@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const bcrypt = require('bcryptjs');
 
 class UserController {
 
@@ -9,6 +10,9 @@ class UserController {
     }
 
     async store(user) {
+        const password = user.password
+        const encrypted = await bcrypt.hash(password, 6);
+        user.password = encrypted;
         return User.create(car);
     }
 
